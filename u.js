@@ -79,13 +79,9 @@ THE SOFTWARE.*/
         return formData;
     };
 
-    HTMLCollection.prototype.toArray = function() {
-       var arr = [];
-       for (var i = 0; i < this.length; i++) arr.push(this.item(i));
-       return arr;
-    };
-
-    NodeList.prototype.toArray = HTMLCollection.prototype.toArray;
+    NodeList.prototype.toArray = function () {
+        return Array.prototype.slice.call(this);
+    }
 
     return u;
 });
